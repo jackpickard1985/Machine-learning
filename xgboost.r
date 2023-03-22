@@ -16,7 +16,7 @@ pred = predict(bst, as.matrix(subset(ML_data_test, select = - c(death_in_6h))))
 
 
 
-print("Assessing rf model against test set; calculating AUC")
+print("Assessing model against test set; calculating AUC")
 
 outcomes <- ML_data_test[,"death_in_6h"]  # outcomes taken as the true outcoms from the validation set
 ML_data_test_temp <- subset(ML_data_test, select = - c(death_in_6h))
