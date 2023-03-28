@@ -13,9 +13,9 @@ data_frame[] <- lapply(data_frame, function(x) {
 
 if(is.factor(x)) as.numeric(as.character(x)) else x})
 
-X_data_2 <- data.matrix(subset(data_frame, select = -  c(death_in_6h)))    # changed from as.matrix to avoid error
+X_data_2 <- data.matrix(subset(data_frame, select = -  c(outcome_column)))    # changed from as.matrix to avoid error
 
-Y_data_2 <- data.matrix(subset(data_frame, select = c(death_in_6h)))
+Y_data_2 <- data.matrix(subset(data_frame, select = c(outcome_column)))
 
 
 
