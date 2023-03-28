@@ -6,8 +6,8 @@ library(pROC)
 
 print("Assessing model against test set; calculating AUC")
 
-outcomes <- ML_data_test[,"death_in_6h"]  # outcomes taken as the true outcoms from the test set
-ML_data_test_temp <- subset(ML_data_test, select = - c(death_in_6h))
+outcomes <- ML_data_test[,"outcome_column"]  # outcomes taken as the true outcoms from the test set
+ML_data_test_temp <- subset(ML_data_test, select = - c(outcome_column))
 
 predictions <- vector(length = nrow(ML_data_test_temp))  # calculate results as predicted by the logistic regression model coefficients
 for (y in 1:nrow(ML_data_test_temp)) {
@@ -17,8 +17,8 @@ predictions[y] <- predictions[y] + (coef(result)[z] * as.numeric(ML_data_test_te
 }
 }
 
-#death_in_6h <- outcomes
-#ML_data_test <- ML_data <- cbind(ML_data_test, death_in_6h)
+#outcome_column <- outcomes
+#ML_data_test <- ML_data <- cbind(ML_data_test, outcome_column)
 #plot.roc(outcomes, predictions, print.auc=TRUE)
 
 rocobj <- plot.roc(outcomes, predictions,
